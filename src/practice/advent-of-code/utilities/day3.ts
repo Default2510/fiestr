@@ -16,7 +16,7 @@ const testData: Array<string> = [
   '01010',
 ];
 
-export const day3 = () => {
+export const day3 = (): string => {
   const diagnosticData: Array<string> = isTest ? testData : data;
   const countZeroes: Array<number> = [];
   let gammaRateBinary: string = '';
@@ -51,12 +51,12 @@ export const day3 = () => {
   const epsilonRate: number = parseInt(epsilonRateBinary, 2);
   const powerConsumption: number = gammaRate * epsilonRate;
 
-  return powerConsumption;
+  return powerConsumption.toString();
 };
 
 type Common = 'most' | 'least';
 
-const filterData = (data: Array<string>, position: number, type: Common) => {
+const filterData = (data: Array<string>, position: number, type: Common): Array<string> => {
   const countZeroes: Array<number> = [];
 
   for (let i: number = 0; i < data.length; ++i) {
@@ -84,7 +84,7 @@ const filterData = (data: Array<string>, position: number, type: Common) => {
   });
 };
 
-export const day3_2 = () => {
+export const day3_2 = (): string => {
   const diagnosticData: Array<string> = isTest ? testData : data;
   let oxygenGeneratorData: Array<string> = diagnosticData;
   let co2ScrubberData: Array<string> = diagnosticData;
@@ -103,5 +103,5 @@ export const day3_2 = () => {
   const co2ScrubberRating: number = parseInt(co2ScrubberData[0], 2);
   const lifeSupportRating: number = oxygenGeneratorRating * co2ScrubberRating;
 
-  return lifeSupportRating;
+  return lifeSupportRating.toString();
 };

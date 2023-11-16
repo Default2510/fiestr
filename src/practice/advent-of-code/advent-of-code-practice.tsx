@@ -2,21 +2,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AdventOfCode } from './advent-of-code';
 
 export const AdventOfCodePractice = () => {
-  const days: Array<number> = new Array<number>(3).fill(0);
+  const days: Array<number> = [1, 2, 3, 5];
 
   return (
     <Tabs defaultValue="overview">
       <TabsList>
-        {days.map((i, index) => {
+        {days.map((i) => {
           return (
-            <TabsTrigger value={'day' + index}>Day {index + 1}</TabsTrigger>
+            <TabsTrigger value={'day' + i}>Day {i}</TabsTrigger>
           );
         })}
       </TabsList>
-      {days.map((i, index) => {
+      {days.map((i) => {
         return (
-          <TabsContent value={'day' + index}>
-            <AdventOfCode day={index + 1} />
+          <TabsContent value={'day' + i}>
+            <AdventOfCode day={i} />
           </TabsContent>
         );
       })}

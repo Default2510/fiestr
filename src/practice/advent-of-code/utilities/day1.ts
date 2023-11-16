@@ -3,7 +3,7 @@ import { data } from '../data/day1'
 const isTest: boolean = false;
 const testData: Array<number> = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
 
-export const day1 = () => {
+export const day1 = (): string => {
   const depthData: Array<number> = isTest ? testData : data;
   let count: number = 0;
 
@@ -15,10 +15,10 @@ export const day1 = () => {
     }
   }
 
-  return count;
+  return count.toString();
 };
 
-export const day1_2 = () => {
+export const day1_2 = (): string => {
   const depthData: Array<number> = isTest ? testData : data;
   let count: number = 0;
 
@@ -30,5 +30,5 @@ export const day1_2 = () => {
     }
   }
 
-  return count;
+  return count.toString();
 };

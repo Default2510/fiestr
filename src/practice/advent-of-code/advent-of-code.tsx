@@ -12,20 +12,22 @@ interface AdventOfCodeAction {
   part: number;
 }
 
-const daysUtil = [day1, day1_2, day2, day2_2, day3, day3_2];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const daysUtil: any = {
+  day1: day1,
+  day1_2: day1_2,
+  day2: day2,
+  day2_2: day2_2,
+  day3: day3,
+  day3_2: day3_2,
+};
 
-export const scenarioCommand = (action: AdventOfCodeAction) => {
-  for (let i: number = 0; i < daysUtil.length / 2; ++i) {
-    if (action.day === i + 1) {
-      if (action.part === 1) {
-        return daysUtil[i * 2]();
-      } else if (action.part === 2) {
-        return daysUtil[i * 2 + 1]();
-      }
-    }
+const scenarioCommand = (action: AdventOfCodeAction): string => {
+  const scenario: string = 'day' + action.day + (action.part === 1 ? "" : "_2");
+  if (scenario in daysUtil) {
+    return daysUtil[scenario]();
   }
-  
-  throw new Error("Something's wrong....");
+  return "";
 };
 
 export const AdventOfCode = (props: AdventOfCodeProps) => {
