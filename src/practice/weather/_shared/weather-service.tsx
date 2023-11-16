@@ -24,7 +24,8 @@ export const fetchPosition = (
 ): Promise<Position> =>
   doFetch('http://www.geoplugin.net/json.gp')
     .then(r => r.json())
-    .then(toPosition);
+    .then(toPosition)
+    .catch(() => { return { latitude: 41.2315, longitude: -96.0519 };});
 
 export const toGridLocationUrl = (position: Position) =>
   `https://api.weather.gov/points/${position.latitude},${position.longitude}`;
