@@ -1,15 +1,17 @@
-import { PlaygroundPage } from './pages/playground-page.tsx';
-import { HomePage } from './pages/home-page.tsx';
-
-import { FizzBuzzPractice } from './practice/fizz-buzz/fizz-buzz-practice.tsx';
-import { StopwatchPractice } from './practice/stopwatch/stopwatch-practice.tsx';
-import { WeatherPractice } from './practice/weather/weather-practice.tsx';
-import { RickRollerPractice } from './practice/rick-roller/rick-roller-practice.tsx';
-
 import { ReactNode } from 'react';
-import { WordProcessorPractice } from './practice/word-processor/word-processor-practice.tsx';
+import { HomePage } from './pages/home-page.tsx';
+import { PlaygroundPage } from './pages/playground-page.tsx';
+
+import { AdventOfCodePractice } from './practice/advent-of-code/advent-of-code-practice.tsx';
+import { FizzBuzzPractice } from './practice/fizz-buzz/fizz-buzz-practice.tsx';
+import { RickRollerPractice } from './practice/rick-roller/rick-roller-practice.tsx';
+import { StopwatchPractice } from './practice/stopwatch/stopwatch-practice.tsx';
 import { UseFrozenStatePractice } from './practice/use-frozen-state/use-frozen-state-practice.tsx';
+import { WeatherPractice } from './practice/weather/weather-practice.tsx';
+import { WordProcessorPractice } from './practice/word-processor/word-processor-practice.tsx';
+
 import { PlanetsDemo } from './demos/planets/planets-demo.tsx';
+
 
 export interface RouteInfo {
   path: string;
@@ -55,6 +57,11 @@ export const practiceRoutes: { [key: string]: RouteInfo } = {
     path: '/practice/use-frozen-state',
     element: <UseFrozenStatePractice />,
     title: 'Frozen State',
+  },
+  AdventOfCodePractice: {
+    path: '/practice/advent-of-code',
+    element: <AdventOfCodePractice />,
+    title: 'Advent of Code',
   },
 };
 
