@@ -1,4 +1,4 @@
-import { data } from '../data/day3';
+import { data } from '../data/year2021day3';
 
 const isTest: boolean = false;
 const testData: Array<string> = [
@@ -16,7 +16,7 @@ const testData: Array<string> = [
   '01010',
 ];
 
-export const day3 = (): string => {
+export const year2021day3 = (): string => {
   const diagnosticData: Array<string> = isTest ? testData : data;
   const countZeroes: Array<number> = [];
   let gammaRateBinary: string = '';
@@ -84,7 +84,7 @@ const filterData = (data: Array<string>, position: number, type: Common): Array<
   });
 };
 
-export const day3_2 = (): string => {
+export const year2021day3_2 = (): string => {
   const diagnosticData: Array<string> = isTest ? testData : data;
   let oxygenGeneratorData: Array<string> = diagnosticData;
   let co2ScrubberData: Array<string> = diagnosticData;

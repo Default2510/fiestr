@@ -1,9 +1,9 @@
-import { data } from '../data/day2'
+import { data } from '../data/year2021day2'
 
 const isTest: boolean = false;
 const testData: Array<string> = ["forward 5","down 5","forward 8","up 3","down 8","forward 2"];
 
-export const day2 = (): string => {
+export const year2021day2 = (): string => {
   const moveData: Array<string> = isTest ? testData : data;
   let horizontal: number = 0;
   let vertical: number = 0;
@@ -20,13 +20,13 @@ export const day2 = (): string => {
       vertical -= distance;
     }
   }
-  
+
   const depth: number = horizontal * vertical;
 
   return depth.toString();
 };
 
-export const day2_2 = (): string => {
+export const year2021day2_2 = (): string => {
   const moveData: Array<string> = isTest ? testData : data;
   let horizontal: number = 0;
   let vertical: number = 0;
