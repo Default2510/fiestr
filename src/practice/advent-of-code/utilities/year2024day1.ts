@@ -1,34 +1,59 @@
-import { data } from '../data/year2024day1'
+import { data } from '../data/year2024day1';
 
-const isTest: boolean = true;
-const testData: Array<number> = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
+const isTest: boolean = false;
+const testData: Array<string> = [
+  '3   4',
+  '4   3',
+  '2   5',
+  '1   3',
+  '3   9',
+  '3   3',
+];
 
 export const year2024day1 = (): string => {
-  const depthData: Array<number> = isTest ? testData : data;
-  let count: number = 0;
+  const depthData: Array<string> = isTest ? testData : data;
+  const leftList: Array<number> = new Array<number>();
+  const rightList: Array<number> = new Array<number>();
+  let totalDistance: number = 0;
 
-  for (let i = 1; i < depthData.length; ++i) {
-    const current: number = depthData[i];
-    const previous: number = depthData[i - 1];
-    if (previous < current) {
-      ++count;
-    }
+  for (let i = 0; i < depthData.length; ++i) {
+    const current: string = depthData[i];
+    const row: Array<string> = current.split('   ');
+    leftList.push(Number.parseInt(row[0]));
+    rightList.push(Number.parseInt(row[1]));
   }
 
-  return count.toString();
+  leftList.sort();
+  rightList.sort();
+
+  for (let i = 0; i < leftList.length; ++i) {
+    const distance: number = Math.abs(leftList[i] - rightList[i]);
+    totalDistance += distance;
+  }
+
+  return totalDistance.toString();
+  /* 2264607 */
 };
 
 export const year2024day1_2 = (): string => {
-  const depthData: Array<number> = isTest ? testData : data;
-  let count: number = 0;
+  const depthData: Array<string> = isTest ? testData : data;
+  const leftList: Array<number> = new Array<number>();
+  const rightList: Array<number> = new Array<number>();
+  let similarityScore: number = 0;
 
-  for (let i = 0; i < depthData.length - 2; ++i) {
-    const sum1: number = depthData[i] + depthData[i + 1] + depthData[i + 2];
-    const sum2: number = depthData[i + 1] + depthData[i + 2] + depthData[i + 3];
-    if (sum1 < sum2) {
-      ++count;
-    }
+  for (let i = 0; i < depthData.length; ++i) {
+    const current: string = depthData[i];
+    const row: Array<string> = current.split('   ');
+    leftList.push(Number.parseInt(row[0]));
+    rightList.push(Number.parseInt(row[1]));
   }
 
-  return count.toString();
+  for (let i = 0; i < leftList.length; ++i) {
+    const num: number = leftList[i];
+    const count: number = rightList.filter(x => x == num).length;
+    similarityScore += num * count;
+  }
+
+  return similarityScore.toString();
+  /* 19457120 */
 };
